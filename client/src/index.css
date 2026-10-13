@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #07090D;
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --teal-glow: #00D6C9;
+  --teal-primary: #00AFA8;
+  --card-bg: rgba(13, 17, 23, 0.75);
+}
+
+.light {
+  --bg-color: #F8FAFC;
+  --text-primary: #0F172A;
+  --text-muted: #475569;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --teal-glow: #0284C7;
+  --teal-primary: #0D9488;
+  --card-bg: rgba(255, 255, 255, 0.85);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Cinematic subtle background glow for hero */
+.hero-glow-dark {
+  background: radial-gradient(
+    circle at 50% 38%,
+    rgba(19, 127, 131, 0.14) 0%,
+    rgba(10, 25, 47, 0.22) 35%,
+    rgba(7, 9, 13, 0.95) 75%
+  );
+}
+
+.hero-glow-light {
+  background: radial-gradient(
+    circle at 50% 38%,
+    rgba(0, 175, 168, 0.08) 0%,
+    rgba(224, 242, 254, 0.2) 40%,
+    rgba(248, 250, 252, 0.98) 75%
+  );
+}
+
+/* Portrait mask to blend seamlessly into background bottom */
+.portrait-mask {
+  mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Button & interactive glows */
+.btn-glow {
+  box-shadow: 0 0 20px -5px rgba(0, 214, 201, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px 2px rgba(0, 214, 201, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07090D;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00AFA8;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
